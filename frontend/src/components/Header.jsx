@@ -7,18 +7,22 @@ import {
   faCog, 
   faClock,
   faEye,
-  faSignal
+  faSignal,
+  faMoon,
+  faSun
 } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Header Component
- * Professional command-center header with system health indicators
+ * Professional command-center header with system health indicators and theme toggle
  */
 export const Header = ({ 
   systemStatus, 
   isLoading, 
   onMenuToggle 
 }) => {
+  const { theme, toggleTheme } = useTheme();
   const isOnline = systemStatus?.status === 'active';
 
   return (
@@ -81,6 +85,16 @@ export const Header = ({
           </div>
 
           <div className="action-buttons">
+            <motion.button 
+              className="theme-toggle-btn" 
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.08 }} 
+              whileTap={{ scale: 0.95 }}
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+              aria-label="Toggle theme"
+            >
+              <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+            </motion.button>
             <motion.button 
               className="settings-btn" 
               whileHover={{ scale: 1.08 }} 
