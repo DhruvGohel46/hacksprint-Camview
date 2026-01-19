@@ -1,6 +1,38 @@
 /* Enterprise Sidebar Styles */
 /* Production-ready, professional, and scalable */
 
+/* ============================================
+   Smooth Theme Transitions
+   ============================================ */
+
+/* Enterprise Sidebar specific theme transitions */
+.enterprise-sidebar,
+.enterprise-sidebar__header,
+.enterprise-sidebar__brand,
+.enterprise-sidebar__logo-text,
+.enterprise-sidebar__logo-subtitle,
+.enterprise-sidebar__version,
+.enterprise-sidebar__close,
+.enterprise-sidebar__nav,
+.enterprise-sidebar__nav-section,
+.enterprise-sidebar__nav-title,
+.enterprise-sidebar__nav-item,
+.enterprise-sidebar__nav-icon,
+.enterprise-sidebar__nav-content,
+.enterprise-sidebar__nav-label,
+.enterprise-sidebar__nav-description,
+.enterprise-sidebar__footer,
+.enterprise-sidebar__status,
+.enterprise-sidebar__status-indicator,
+.enterprise-sidebar__copyright {
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 :root {
   --sidebar-width: 280px;
   --sidebar-bg: #ffffff;

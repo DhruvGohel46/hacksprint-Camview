@@ -94,7 +94,17 @@ export const Header = ({
               title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
               aria-label="Toggle theme"
             >
-              <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+              <motion.div
+                key={theme} // Key triggers re-render animation
+                initial={{ rotate: -180, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.3, 
+                  ease: "easeInOut"
+                }}
+              >
+                <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+              </motion.div>
             </motion.button>
           </div>
         </div>

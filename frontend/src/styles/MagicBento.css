@@ -10,6 +10,35 @@
   color-scheme: light dark;
 }
 
+/* ============================================
+   Smooth Theme Transitions
+   ============================================ */
+
+/* MagicBento specific theme transitions */
+.card-grid,
+.magic-bento-card,
+.magic-bento-card__header,
+.magic-bento-card__content,
+.magic-bento-card__label,
+.magic-bento-card__title,
+.magic-bento-card__description,
+.magic-bento-card--border-glow {
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Particle transitions */
+.particle-container,
+.particle::before {
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .card-grid {
   display: grid;
   gap: 0.5em;

@@ -8,6 +8,59 @@
   color-scheme: dark light;
 }
 
+/* ============================================
+   Smooth Theme Transitions
+   ============================================ */
+
+/* Global theme transition variables */
+:root {
+  --theme-transition-duration: 0.3s;
+  --theme-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Apply smooth transitions to all theme-related properties */
+*,
+*::before,
+*::after {
+  transition-property: 
+    background-color,
+    background,
+    border-color,
+    color,
+    box-shadow,
+    text-shadow,
+    fill,
+    stroke,
+    opacity;
+  transition-duration: var(--theme-transition-duration);
+  transition-timing-function: var(--theme-transition-easing);
+}
+
+/* Specific theme-aware elements with enhanced transitions */
+.app,
+.header,
+.main-content,
+.sidebar,
+.enterprise-sidebar,
+.analytics-container,
+.events-container,
+.live-feed .video-container,
+.metric-card,
+.event-card,
+.magic-bento-card,
+.video-overlay,
+.filter-btn,
+.nav-item,
+.enterprise-sidebar__nav-item {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    background var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing),
+    fill var(--theme-transition-duration) var(--theme-transition-easing);
+}
+
 .app {
   min-height: 100vh;
   position: relative;

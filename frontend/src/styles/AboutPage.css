@@ -1,6 +1,47 @@
 /* Market-Ready About Us Page Styles */
 /* Professional, clean, enterprise-grade visual improvements */
 
+/* ============================================
+   Smooth Theme Transitions
+   ============================================ */
+
+/* About Us specific theme transitions */
+.about-container,
+.about-hero,
+.about-section,
+.magic-bento-card,
+.feature-content,
+.capability-content,
+.arch-content,
+.philosophy-content-inner,
+.cta-section {
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography transitions */
+.about-section h2,
+.about-section h2::after,
+.feature-content h3,
+.capability-content span,
+.arch-content h3,
+.philosophy-content-inner h3,
+.hero-content h1,
+.hero-subtitle,
+.hero-description {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon transitions */
+.feature-icon,
+.capability-check {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Transparent background for main-content in About Us page */
 .main-content {
   background: transparent !important;
