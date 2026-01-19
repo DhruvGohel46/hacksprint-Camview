@@ -71,10 +71,10 @@ start "CAMVIEW.AI Backend" cmd /k "cd /d "%BACKEND_DIR%" && python api.py"
 REM Wait a moment for backend to start
 timeout /t 3 /nobreak
 
-REM Start Frontend in a new window
+REM Start Frontend in a new window (without auto-opening browser)
 echo Starting Frontend React App (Port 3000)...
-echo Command: cd "%FRONTEND_DIR%" ^&^& npm start
-start "CAMVIEW.AI Frontend" cmd /k "cd /d "%FRONTEND_DIR%" && npm start"
+echo Command: cd "%FRONTEND_DIR%" ^&^& set BROWSER=none ^&^& npm start
+start "CAMVIEW.AI Frontend" cmd /k "cd /d "%FRONTEND_DIR%" && set BROWSER=none && npm start"
 
 echo.
 echo ════════════════════════════════════════════════════════════════
@@ -87,12 +87,14 @@ echo.
 echo 💡 Both services are starting in separate windows.
 echo 💡 Backend will take ~3-5 seconds to initialize.
 echo 💡 Frontend will take ~15-30 seconds to build and start.
+echo 💡 Browser will open automatically once frontend is ready.
 echo.
-echo ⏳ Waiting for frontend to open in your default browser...
+echo ⏳ Waiting for frontend to start before opening browser...
 echo.
-timeout /t 15 /nobreak
+timeout /t 20 /nobreak
 
-REM Try to open the frontend in default browser
+REM Open the frontend in default browser (only once)
+echo Opening frontend in default browser...
 start http://localhost:3000
 
 echo.
