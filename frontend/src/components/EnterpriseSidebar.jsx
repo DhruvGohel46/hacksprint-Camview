@@ -54,6 +54,7 @@ export const Sidebar = ({
       initial={false}
       animate={{ x: isOpen ? 0 : '-100%' }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside sidebar
     >
       {/* Header */}
       <div className="enterprise-sidebar__header">

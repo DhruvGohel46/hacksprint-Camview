@@ -83,7 +83,10 @@ const DashboardPage = () => {
         />
 
         {/* Main Content */}
-        <div className={`main-content ${isSidebarOpen ? 'sidebar-open blurred' : ''}`}>
+        <div 
+          className={`main-content ${isSidebarOpen ? 'sidebar-open blurred' : ''}`}
+          onClick={() => isSidebarOpen && setIsSidebarOpen(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeView}
