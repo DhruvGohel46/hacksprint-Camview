@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,42 +13,123 @@ import {
   faAward
 } from '@fortawesome/free-solid-svg-icons';
 
+import ScrambledText from '../styles/ScrambledText';
+import MagicBento from '../styles/MagicBento';
+import '../styles/MagicBento.css';
+import '../styles/AboutPage.css';
+import '../styles/EnterpriseSidebar.css';
+
 /**
  * About Page - Introduction to CAMVIEW.AI
  */
 export const AboutPage = () => {
-  const features = [
+  // Custom data for each section
+  const featuresData = [
     {
-      icon: faCamera,
+      color: '#0a4d0a',
       title: 'Real-time Monitoring',
-      description: 'Continuous video feed processing with intelligent event detection'
+      description: 'Continuous video feed processing with intelligent event detection',
+      label: 'Core'
     },
     {
-      icon: faRobot,
+      color: '#0a4d0a',
       title: 'AI-Powered Detection',
-      description: 'Advanced YOLO model for accurate vehicle and violation recognition'
+      description: 'Advanced YOLO model for accurate vehicle and violation recognition',
+      label: 'AI'
     },
     {
-      icon: faChartLine,
+      color: '#0a4d0a',
       title: 'Analytics & Insights',
-      description: 'Comprehensive traffic intelligence and operational trends'
+      description: 'Comprehensive traffic intelligence and operational trends',
+      label: 'Data'
     },
     {
-      icon: faShield,
+      color: '#0a4d0a',
       title: 'System Reliability',
-      description: 'Stable, validated event processing with cooldown policies'
+      description: 'Stable, validated event processing with cooldown policies',
+      label: 'Trust'
     }
   ];
 
-  const capabilities = [
-    'Emergency Vehicle Detection',
-    'Wrong-Way Driving Detection',
-    'Pothole & Road Damage Detection',
-    'Speed Monitoring',
-    'Vehicle Registry & Tracking',
-    'Event De-duplication',
-    'Real-time Processing',
-    'Multi-lane Support'
+  const capabilitiesData = [
+    {
+      color: '#0a4d0a',
+      title: 'Emergency Detection',
+      description: 'Identify emergency vehicles instantly',
+      label: 'Safety'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Violation Detection',
+      description: 'Detect wrong-way driving and violations',
+      label: 'Enforcement'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Road Monitoring',
+      description: 'Monitor road conditions and damage',
+      label: 'Infrastructure'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Real-time Processing',
+      description: 'Process events with minimal latency',
+      label: 'Performance'
+    }
+  ];
+
+  const architectureData = [
+    {
+      color: '#0a4d0a',
+      title: 'Video Input',
+      description: 'Real-time video stream processing from traffic cameras',
+      label: 'Input'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Processing Engine',
+      description: 'YOLO-based detection with specialized violation models',
+      label: 'Engine'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Business Logic',
+      description: 'Event-driven system with stateful vehicle registry',
+      label: 'Logic'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Intelligence Interface',
+      description: 'Professional command-center dashboard and analytics',
+      label: 'Interface'
+    }
+  ];
+
+  const philosophyData = [
+    {
+      color: '#0a4d0a',
+      title: 'Event-First Design',
+      description: 'Prioritize validated events over raw detections',
+      label: 'Focus'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Trust & Reliability',
+      description: 'De-duplicate events and respect system policies',
+      label: 'Quality'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Professional Interface',
+      description: 'Clean design focused on actionable intelligence',
+      label: 'Design'
+    },
+    {
+      color: '#0a4d0a',
+      title: 'Operator-Centric',
+      description: 'Built for traffic operations teams',
+      label: 'User'
+    }
   ];
 
   return (
@@ -62,11 +144,17 @@ export const AboutPage = () => {
         <div className="hero-content">
           <h1>CAMVIEW.AI</h1>
           <p className="hero-subtitle">Intelligent Traffic Intelligence Command Center</p>
-          <p className="hero-description">
+          <ScrambledText
+            className="hero-description"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars={'.:'}
+          >
             Transform raw video streams into actionable traffic intelligence. 
             CAMVIEW.AI combines advanced computer vision with intelligent event processing 
             to provide comprehensive traffic monitoring and analytics.
-          </p>
+          </ScrambledText>
         </div>
       </motion.section>
 
@@ -79,25 +167,21 @@ export const AboutPage = () => {
         viewport={{ once: true }}
       >
         <h2>Core Features</h2>
-        <div className="features-grid">
-          {features.map((feature, idx) => (
-            <motion.div
-              key={idx}
-              className="feature-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="feature-icon">
-                <FontAwesomeIcon icon={feature.icon} size="2x" />
-              </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        {console.log('Features Data:', featuresData)}
+        <MagicBento 
+          textAutoHide={false}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={12}
+          glowColor="74, 222, 128"
+          disableAnimations={false}
+          data={featuresData}
+        />
       </motion.section>
 
       {/* System Capabilities */}
@@ -109,21 +193,20 @@ export const AboutPage = () => {
         viewport={{ once: true }}
       >
         <h2>System Capabilities</h2>
-        <div className="capabilities-grid">
-          {capabilities.map((capability, idx) => (
-            <motion.div
-              key={idx}
-              className="capability-item"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <div className="capability-check">✓</div>
-              <span>{capability}</span>
-            </motion.div>
-          ))}
-        </div>
+        <MagicBento 
+          textAutoHide={false}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={8}
+          glowColor="74, 222, 128"
+          disableAnimations={false}
+          data={capabilitiesData}
+        />
       </motion.section>
 
       {/* Architecture Overview */}
@@ -135,59 +218,20 @@ export const AboutPage = () => {
         viewport={{ once: true }}
       >
         <h2>Architecture Overview</h2>
-        <div className="architecture-grid">
-          <motion.div
-            className="arch-card"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0 }}
-            viewport={{ once: true }}
-          >
-            <FontAwesomeIcon icon={faCamera} size="2x" />
-            <h3>Video Input</h3>
-            <p>Real-time video stream processing from traffic cameras</p>
-          </motion.div>
-
-          <motion.div
-            className="arch-card"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <FontAwesomeIcon icon={faRobot} size="2x" />
-            <h3>Processing Engine</h3>
-            <p>YOLO-based detection with specialized violation models</p>
-          </motion.div>
-
-          <motion.div
-            className="arch-card"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <FontAwesomeIcon icon={faBriefcase} size="2x" />
-            <h3>Business Logic</h3>
-            <p>Event-driven system with stateful vehicle registry</p>
-          </motion.div>
-
-          <motion.div
-            className="arch-card"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <FontAwesomeIcon icon={faChartLine} size="2x" />
-            <h3>Intelligence Interface</h3>
-            <p>Professional command-center dashboard and analytics</p>
-          </motion.div>
-        </div>
+        <MagicBento 
+          textAutoHide={false}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={15}
+          glowColor="74, 222, 128"
+          disableAnimations={false}
+          data={architectureData}
+        />
       </motion.section>
 
       {/* Design Philosophy */}
@@ -199,43 +243,20 @@ export const AboutPage = () => {
         viewport={{ once: true }}
       >
         <h2>Design Philosophy</h2>
-        <div className="philosophy-content">
-          <div className="philosophy-card">
-            <FontAwesomeIcon icon={faBullseye} size="lg" />
-            <h3>Event-First Design</h3>
-            <p>
-              Prioritize validated events over raw detections. 
-              Every alert has operational significance.
-            </p>
-          </div>
-
-          <div className="philosophy-card">
-            <FontAwesomeIcon icon={faShield} size="lg" />
-            <h3>Trust & Reliability</h3>
-            <p>
-              De-duplicate events, apply cooldowns, and respect system policies. 
-              Operators can trust every notification.
-            </p>
-          </div>
-
-          <div className="philosophy-card">
-            <FontAwesomeIcon icon={faAward} size="lg" />
-            <h3>Professional Interface</h3>
-            <p>
-              Clean, minimal design. No gradients or distracting animations. 
-              Focus on actionable intelligence.
-            </p>
-          </div>
-
-          <div className="philosophy-card">
-            <FontAwesomeIcon icon={faUsers} size="lg" />
-            <h3>Operator-Centric</h3>
-            <p>
-              Built for traffic operations teams. Easy to understand, 
-              intuitive to navigate, powerful in scope.
-            </p>
-          </div>
-        </div>
+        <MagicBento 
+          textAutoHide={false}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={10}
+          glowColor="74, 222, 128"
+          disableAnimations={false}
+          data={philosophyData}
+        />
       </motion.section>
 
       {/* CTA Section */}
@@ -248,9 +269,9 @@ export const AboutPage = () => {
       >
         <h2>Get Started</h2>
         <p>
-          Navigate to <strong>Live Monitoring</strong> to begin watching the real-time video feed,
-          check <strong>Event Intelligence</strong> for validated traffic events, 
-          or view <strong>Analytics & Insights</strong> for operational trends.
+          Navigate to <a href="/monitoring/live" className="cta-link" target="_blank" rel="noopener noreferrer">Live Monitoring</a> to begin watching the real-time video feed,
+          check <a href="/monitoring/events" className="cta-link" target="_blank" rel="noopener noreferrer">Event Intelligence</a> for validated traffic events, 
+          or view <a href="/monitoring/analytics" className="cta-link" target="_blank" rel="noopener noreferrer">Analytics & Insights</a> for operational trends.
         </p>
       </motion.section>
     </div>

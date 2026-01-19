@@ -20,14 +20,15 @@ import { useTheme } from '../context/ThemeContext';
 export const Header = ({ 
   systemStatus, 
   isLoading, 
-  onMenuToggle 
+  onMenuToggle,
+  className 
 }) => {
   const { theme, toggleTheme } = useTheme();
   const isOnline = systemStatus?.status === 'active';
 
   return (
     <motion.header 
-      className="header" 
+      className={`header ${className || ''}`} 
       initial={{ y: -100 }} 
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
+import { Sidebar } from '../components/EnterpriseSidebar';
 import { LiveFeed } from '../components/LiveFeed';
 import { Analytics } from '../components/Analytics';
 import { Events } from '../components/Events';
 import { AboutPage } from './AboutPage';
 import { useApi } from '../hooks/useApi';
+import '../styles/EnterpriseSidebar.css';
 
 const DashboardPage = () => {
   const [activeView, setActiveView] = useState('about');
@@ -78,10 +79,11 @@ const DashboardPage = () => {
           systemStatus={systemStatus}
           isLoading={false}
           onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+          className={isSidebarOpen ? 'blurred' : ''}
         />
 
         {/* Main Content */}
-        <div className="main-content">
+        <div className={`main-content ${isSidebarOpen ? 'sidebar-open blurred' : ''}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeView}

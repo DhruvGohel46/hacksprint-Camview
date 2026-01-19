@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './context/ThemeContext';
@@ -13,7 +14,12 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider>
         <div className="app">
-          <DashboardPage />
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/live" element={<DashboardPage />} />
+            <Route path="/events" element={<DashboardPage />} />
+            <Route path="/analytics" element={<DashboardPage />} />
+          </Routes>
         </div>
       </ThemeProvider>
     </ErrorBoundary>
